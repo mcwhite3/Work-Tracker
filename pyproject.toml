@@ -1,0 +1,11 @@
+[project]
+name = "work-tracker"
+version = "0.1.0"
+description = "A lightweight desktop planner for tracking work activities before Smartsheet submission."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.ruff]
+line-length = 100
+
