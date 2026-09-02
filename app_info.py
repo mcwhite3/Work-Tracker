@@ -1,0 +1,3 @@
+APP_NAME = "Work Tracker"
+APP_VERSION = "0.2.0"
+APP_DISPLAY_NAME = f"{APP_NAME} v{APP_VERSION}"

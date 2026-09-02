@@ -20,6 +20,13 @@ class DaySchedule:
             activity for activity in self.activities if activity.activity_id != activity_id
         ]
 
+    def replace_activity(self, updated_activity: Activity) -> None:
+        self.activities = [
+            updated_activity if activity.activity_id == updated_activity.activity_id else activity
+            for activity in self.activities
+        ]
+        self.activities.sort(key=lambda item: item.start_time)
+
     def to_dict(self) -> dict[str, object]:
         return {
             "schedule_date": self.schedule_date.isoformat(),
@@ -37,4 +44,3 @@ class DaySchedule:
             schedule_date=date.fromisoformat(str(data["schedule_date"])),
             activities=activities,
         )
-

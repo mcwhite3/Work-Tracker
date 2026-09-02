@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import tkinter as tk
+from collections.abc import Callable
 from tkinter import ttk
 
 
@@ -16,8 +17,9 @@ class Sidebar(ttk.Frame):
         "EVT: Product Return",
     ]
 
-    def __init__(self, parent: tk.Widget) -> None:
+    def __init__(self, parent: tk.Widget, on_activity_selected: Callable[[str], None]) -> None:
         super().__init__(parent, style="Panel.TFrame", padding=16)
+        self.on_activity_selected = on_activity_selected
         self._build()
 
     def _build(self) -> None:
@@ -33,5 +35,5 @@ class Sidebar(ttk.Frame):
                 self,
                 text=activity_type,
                 style="Sidebar.TButton",
+                command=lambda selected=activity_type: self.on_activity_selected(selected),
             ).pack(fill=tk.X, pady=3)
-
